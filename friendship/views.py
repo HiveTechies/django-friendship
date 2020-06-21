@@ -14,7 +14,14 @@ except ImportError:
 
     user_model = User
 
+from user.filters import UserFilter
+from django.contrib.auth.models import User
 
+
+def friendship_home(request):
+    user_list=User.objects.all()
+    user_filter = UserFilter(request.GET, queryset=user_list)
+    return render(request, 'friendship/base.html',{"users":user_filter.qs,"user_filter":user_filter})
 
 
 def get_friendship_context_object_name():
