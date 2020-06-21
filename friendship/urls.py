@@ -21,8 +21,12 @@ from friendship.views import (
     friendship_requests_detail,
     view_friends,
 )
+from .views import friendship_home
+from django.urls import path
+
 
 urlpatterns = [
+    path('home/', friendship_home,name='friendship_home'),
     url(regex=r"^users/$", view=all_users, name="friendship_view_users"),
     url(
         regex=r"^friends/(?P<username>[\w-]+)/$",
