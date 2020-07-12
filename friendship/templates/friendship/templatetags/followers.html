@@ -1,5 +1,5 @@
 <ul>
     {% for f in followers %}
-    <li>{{ f.first_name }} {{ f.last_name }}</li>
+        <a class="btn btn-light shadow" href="{% url 'profile_detail' f.username %}">{{f.username}}</a><br>
     {% endfor %} 
 </ul> 
